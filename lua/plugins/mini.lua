@@ -1,6 +1,6 @@
 return {
     {
-        "echasnovski/mini.nvim",
+        "nvim-mini/mini.nvim",
         git = {
             timeout = 900
         },
@@ -17,7 +17,7 @@ return {
         lazy = true,
     },
     {
-        "echasnovski/mini.nvim",
+        "nvim-mini/mini.nvim",
         git = {
             timeout = 900
         },
@@ -29,7 +29,7 @@ return {
         lazy = true,
     },
     {
-        "echasnovski/mini.nvim",
+        "nvim-mini/mini.nvim",
         git = {
             timeout = 900
         },
@@ -41,7 +41,7 @@ return {
         lazy = true,
     },
     {
-        "echasnovski/mini.nvim",
+        "nvim-mini/mini.nvim",
         git = {
             timeout = 900
         },
@@ -53,7 +53,7 @@ return {
         lazy = true,
     },
     {
-        "echasnovski/mini.nvim",
+        "nvim-mini/mini.nvim",
         git = {
             timeout = 900
         },
@@ -65,7 +65,7 @@ return {
         lazy = true,
     },
     {
-        "echasnovski/mini.nvim",
+        "nvim-mini/mini.nvim",
         git = {
             timeout = 900
         },

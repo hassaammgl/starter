@@ -1,6 +1,3 @@
-print("BEFORE LAZY SETUP")
-
-
 -- Lazy.nvim bootstrap helper
 local function ensure_lazy()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -58,5 +55,4 @@ lazy.setup({
     },
   },
 })
-print("AFTER LAZY SETUP")
-print("LAZY CONFIG LOADED")
+

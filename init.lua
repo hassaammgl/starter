@@ -1,6 +1,4 @@
-print("INIT LOADED")
-
 -- now load the rest of the config
 require("config.lazy")
 
-require("config.settings")
+-- require("config.settings")
