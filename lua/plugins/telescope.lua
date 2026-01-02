@@ -1,5 +1,5 @@
 return {
-   {
+  {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     git = {
@@ -21,19 +21,12 @@ return {
 
       -- Telescope keymaps
       local wk = require("which-key")
-      wk.register({
-        ["<leader>f"] = {
-          name = "Files",
-          ff = { builtin.find_files, "Find Files" },
-          fg = { builtin.live_grep, "Grep" },
-          fb = { builtin.buffers, "Buffers" },
-          fh = { builtin.help_tags, "Help Tags" },
-        },
-        ["<leader>g"] = {
-          name = "Git",
-          gc = { function() vim.defer_fn(function() builtin.git_commits() end, 100) end, "Git Commits" },
-          gs = { function() vim.defer_fn(function() builtin.git_status() end, 100) end, "Git Status" },
-        },
+      wk.add({
+        { "<leader>f",  group = "Files" },
+        { "<leader>ff", builtin.find_files, desc = "Find Files" },
+        { "<leader>fg", builtin.live_grep,  desc = "Grep" },
+        { "<leader>fb", builtin.buffers,    desc = "Buffers" },
+        { "<leader>fh", builtin.help_tags,  desc = "Help Tags" },
       })
     end
   },

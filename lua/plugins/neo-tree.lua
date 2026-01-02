@@ -1,81 +1,162 @@
+-- return {
+--   "nvim-neo-tree/neo-tree.nvim",
+--   branch = "v3.x",
+--   dependencies = {
+--     "nvim-lua/plenary.nvim",
+--     "nvim-tree/nvim-web-devicons",
+--     "MunifTanjim/nui.nvim"
+--   },
+--   lazy = true,
+--   cmd = "Neotree", -- ensures it loads only when :Neotree is called
+--   keys = {
+--     { "<leader>e",  "<cmd>Neotree toggle<CR>",            desc = "Toggle File Explorer" },
+--     { "<leader>eg", "<cmd>Neotree git_status toggle<CR>", desc = "Git Status Explorer" },
+--     { "<leader>eb", "<cmd>Neotree buffers toggle<CR>",    desc = "Buffers Explorer" },
+--   },
+--   config = function()
+--     require("neo-tree").setup({
+--       close_if_last_window = true,
+--       popup_border_style = "rounded",
+--       enable_git_status = true,
+--       enable_diagnostics = true,
+--       default_component_configs = {
+--         container = { enable_character_fade = true },
+--         indent = { padding = 1, with_markers = true },
+--         icon = { folder_closed = "", folder_open = "", folder_empty = "ﰊ" },
+--       },
+--       window = {
+--         width = 30,
+--         position = "left",
+--         mapping_options = { noremap = true, nowait = true },
+--         mappings = {
+--           ["<CR>"] = "open",
+--           ["o"] = "open",
+--           ["l"] = "open",
+--           ["h"] = "close_node",
+--           ["a"] = "add",
+--           ["r"] = "rename",
+--           ["d"] = "delete",
+--           ["y"] = "copy_to_clipboard",
+--           ["x"] = "cut_to_clipboard",
+--           ["p"] = "paste_from_clipboard",
+--           ["s"] = "open_split",
+--           ["v"] = "open_vsplit",
+--           ["t"] = "open_tabnew",
+--           ["f"] = "filter_on_submit",
+--           ["R"] = "refresh",
+--           ["?"] = "show_help",
+--         },
+--       },
+--       filesystem = {
+--         filtered_items = { hide_dotfiles = false, hide_gitignored = false },
+--         follow_current_file = {
+--           enable = true,
+--           leave_dirs_open = true,
+--         },
+--         use_libuv_file_watcher = true,
+--       },
+--     })
+
+--     -- Which-key integration
+--     local wk = require("which-key")
+--     wk.register({
+--       ["<leader>e"] = {
+--         name = "File Explorer",
+--         t = { "<cmd>Neotree toggle<CR>", "Toggle Explorer" },
+--         g = { "<cmd>Neotree git_status toggle<CR>", "Git Status Explorer" },
+--         b = { "<cmd>Neotree buffers toggle<CR>", "Buffers Explorer" },
+--       },
+--     })
+--   end,
+-- }
+
 return {
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    config = function()
-      local neo_tree = require("neo-tree")
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
+  },
+  lazy = true,
+  cmd = "Neotree",
+  keys = {
+    { "<leader>e",  "<cmd>Neotree toggle<CR>",            desc = "Toggle File Explorer" },
+    { "<leader>eg", "<cmd>Neotree git_status toggle<CR>", desc = "Git Status Explorer" },
+    { "<leader>eb", "<cmd>Neotree buffers toggle<CR>",    desc = "Buffers Explorer" },
+  },
+  config = function()
+    require("neo-tree").setup({
 
-      neo_tree.setup({
-        close_if_last_window = true,
-        popup_border_style = "rounded",
-        enable_git_status = true,
-        enable_diagnostics = true,
-        default_component_configs = {
-          container = { enable_character_fade = true },
-          indent = { padding = 1, with_markers = true },
-          icon = { folder_closed = "", folder_open = "", folder_empty = "ﰊ" },
+      close_if_last_window = true,
+      popup_border_style = "rounded",
+      enable_git_status = true,
+      enable_diagnostics = true,
+
+      default_component_configs = {
+        container = { enable_character_fade = true },
+        indent = { padding = 1, with_markers = true },
+        icon = {
+          folder_closed = "",
+          folder_open = "",
+          folder_empty = "ﰊ",
         },
-        window = {
-          width = 35,
-          position = "left",
-          mapping_options = { noremap = true, nowait = true },
+      },
+
+      window = {
+        width = 30,
+        position = "left",
+        mapping_options = { noremap = true, nowait = true },
+        mappings = {
+          ["<CR>"] = "open",
+          ["o"] = "open",
+          ["l"] = "open",
+          ["h"] = "close_node",
+          ["a"] = "add",
+          ["r"] = "rename",
+          ["d"] = "delete",
+          ["y"] = "copy_to_clipboard",
+          ["x"] = "cut_to_clipboard",
+          ["p"] = "paste_from_clipboard",
+          ["s"] = "open_split",
+          ["v"] = "open_vsplit",
+          ["t"] = "open_tabnew",
+          ["f"] = "filter_on_submit",
+          ["R"] = "refresh",
+          ["?"] = "show_help",
         },
-        filesystem = {
-          filtered_items = {
-            hide_dotfiles = false,
-            hide_gitignored = true,
-          },
-          follow_current_file = true,
-          use_libuv_file_watcher = true,
+      },
+
+      filesystem = {
+        bind_to_cwd = false, -- IMPORTANT for monorepos
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_gitignored = false,
         },
-      })
 
-      local wk = require("which-key")
+        follow_current_file = {
+          enabled = true, -- ✅ CORRECT KEY
+          leave_dirs_open = true,
+        },
 
-      -- Full Neo-tree action mapping
-      wk.register({
-        ["<leader>e"] = {
-          name = "File Explorer",
-          -- Explorer toggle/focus
-          o = { "<cmd>Neotree focus<CR>", "Focus File/Folder" },
-          R = { "<cmd>Neotree refresh<CR>", "Refresh Tree" },
-          ["?"] = { "<cmd>Neotree show_help<CR>", "Help / Keybindings" },
+        use_libuv_file_watcher = true, -- instant refresh
+      },
+    })
 
-          -- Navigation
-          l = { "<cmd>Neotree reveal<CR>", "Reveal / Expand" },
-          h = { "<cmd>Neotree collapse<CR>", "Collapse Folder" },
-          j = { "<cmd>Neotree next_sibling<CR>", "Next Sibling" },
-          k = { "<cmd>Neotree prev_sibling<CR>", "Previous Sibling" },
-          ["<"] = { "<cmd>Neotree prev_source<CR>", "Previous Source" },
-          [">"] = { "<cmd>Neotree next_source<CR>", "Next Source" },
-
-          -- File operations
-          r = { "<cmd>Neotree rename<CR>", "Rename" },
-          d = { "<cmd>Neotree delete<CR>", "Delete" },
-          a = { "<cmd>Neotree add<CR>", "Add File/Folder" },
-          y = { "<cmd>Neotree copy_path<CR>", "Copy Path" },
-          x = { "<cmd>Neotree cut<CR>", "Cut File" },
-          p = { "<cmd>Neotree paste<CR>", "Paste File" },
-
-          -- Open files
-          s = { "<cmd>Neotree open_split<CR>", "Open Split" },
-          v = { "<cmd>Neotree open_vsplit<CR>", "Open Vertical Split" },
-          t = { "<cmd>Neotree open_tabnew<CR>", "Open Tab" },
-
-          -- Filter / Search
-          f = { "<cmd>Neotree filter<CR>", "Filter/Search" },
-
-          -- Git / diagnostics (if enabled)
-          g = { "<cmd>Neotree git_status<CR>", "Git Status" },
-          e = { "<cmd>Neotree diagnostics<CR>", "Diagnostics" },
-        }
-      })
-    end,
-    lazy = true,
-  }
+    -- which-key integration (THIS PART WAS FINE)
+    -- local wk = require("which-key")
+    -- wk.register({
+    --   ["<leader>e"] = {
+    --     name = "File Explorer",
+    --     e = { "<cmd>Neotree toggle<CR>", "Toggle Explorer" },
+    --     g = { "<cmd>Neotree git_status toggle<CR>", "Git Status Explorer" },
+    --     b = { "<cmd>Neotree buffers toggle<CR>", "Buffers Explorer" },
+    --   },
+    -- })
+    keys = {
+      { "<leader>ee", "<cmd>Neotree toggle<CR>",            desc = "Toggle Explorer" },
+      { "<leader>eg", "<cmd>Neotree git_status toggle<CR>", desc = "Git Status" },
+      { "<leader>eb", "<cmd>Neotree buffers toggle<CR>",    desc = "Buffers" },
+    }
+  end,
 }

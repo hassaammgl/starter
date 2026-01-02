@@ -4,4 +4,3 @@ vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Telescope live_grep<CR>", { nore
 vim.api.nvim_set_keymap("n", "<leader>b", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>Telescope help_tags<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>lua require('telescope').extensions.project.project{}<CR>", { noremap = true, silent = true })
