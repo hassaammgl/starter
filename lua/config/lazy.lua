@@ -1,3 +1,6 @@
+print("BEFORE LAZY SETUP")
+
+
 -- Lazy.nvim bootstrap helper
 local function ensure_lazy()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -37,11 +40,11 @@ end
 lazy.setup({
   git = { timeout = 1200 },
   spec = {
-	{ "folke/tokyonight.nvim", lazy = false }
+    { import = "plugins" },
   },
-  defaults = { lazy = true },
+  defaults = { lazy = true, version = false },
   install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = { enabled = false, notify = false },
+  checker = { enabled = true, notify = false },
   change_detection = { enabled = false, notify = false },
   performance = {
     rtp = {
@@ -55,3 +58,5 @@ lazy.setup({
     },
   },
 })
+print("AFTER LAZY SETUP")
+print("LAZY CONFIG LOADED")

@@ -1,0 +1,114 @@
+LSP & Autocompletion
+
+Ensure nvim-lspconfig is set up for your main languages (JS/TS, Python, etc.).
+Integrate nvim-cmp with snippet support (LuaSnip or friendly-snippets).
+Optional: mason.nvim to easily install/manage LSP servers, linters, formatters.
+------------------------------------------------------
+Treesitter & Syntax Highlighting
+
+Install nvim-treesitter for modern syntax parsing.
+Enable highlighting, incremental selection, and text objects.
+--------------------------------------------------------
+File Navigation & Search
+
+telescope.nvim for fuzzy search, file find, live grep, and buffer switching.
+Optional: nvim-tree.lua or neo-tree.nvim for file explorer sidebar.
+--------------------------------------------------
+Git Integration
+
+gitsigns.nvim for inline Git diffs, blame, and hunk management.
+------------------------------------------------------------------
+UI/UX Enhancements
+
+Status line: lualine.nvim or feline.nvim.
+Buffer line: bufferline.nvim.
+Smooth scrolling: neoscroll.nvim.
+Commenting: Comment.nvim for quick toggles.
+-----------------------------------------------------
+Debugging & Testing
+
+nvim-dap + language-specific adapters.
+vim-test or neotest.nvim for test runners.
+-------------------------------------------
+Performance / Quality of Life
+
+Lazy loading plugins with lazy.nvim.
+Keybinding manager: which-key.nvim.
+Snippet management, auto-pairs, auto-tagging.
+
+
+
+###############################3
+1. Colorschemes & UI
+
+folke/tokyonight.nvim (default colorscheme)
+
+nvim-lualine/lualine.nvim (statusline)
+
+akinsho/bufferline.nvim (buffer tabs)
+
+nvim-tree/nvim-web-devicons (icons)
+
+Optional: dashboards (alpha-nvim / mini.starter)
+
+2. Code Editing Essentials
+
+nvim-treesitter → syntax-aware highlighting, folds, text objects
+
+L3MON4D3/LuaSnip + rafamadriz/friendly-snippets → snippets
+
+numToStr/Comment.nvim → easy commenting (can be replaced with mini.comment)
+
+nvim-autopairs → auto-closing brackets (can use mini.pairs)
+
+echasnovski/mini.nvim → optional modules like mini.animate
+
+3. File Navigation & Search
+
+nvim-telescope/telescope.nvim → fuzzy file search, live grep, symbols
+
+nvim-neo-tree/neo-tree.nvim → sidebar file explorer
+
+4. Git Integration
+
+lewis6991/gitsigns.nvim → inline git signs, hunks, blame
+
+5. Completion & LSP
+
+hrsh7th/nvim-cmp → autocompletion
+
+cmp-nvim-lsp → LSP completion source
+
+cmp_luasnip → snippet completion
+
+6. Utilities
+
+folke/which-key.nvim → keybinding hints
+
+plenary.nvim → utility functions for many plugins
+
+7. Optional Aesthetic / UX Enhancements
+
+mini.animate → smooth scrolling, folds, window resizing
+
+mini.surround → change/delete/add surroundings
+
+mini.bufremove → better buffer deletion
+
+mini.align → text alignment
+
+Verdict
+
+LazyVim defaults = everything a modern Neovim user needs for fullstack dev:
+
+Colorscheme + icons
+
+File navigation + search
+
+Snippets + autocompletion + LSP
+
+Git integration
+
+Commenting, pairs, folding, and optional animations
+
+It’s essentially a “ready-to-code IDE” in Neovim.
