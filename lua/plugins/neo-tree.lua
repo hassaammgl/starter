@@ -1,75 +1,3 @@
--- return {
---   "nvim-neo-tree/neo-tree.nvim",
---   branch = "v3.x",
---   dependencies = {
---     "nvim-lua/plenary.nvim",
---     "nvim-tree/nvim-web-devicons",
---     "MunifTanjim/nui.nvim"
---   },
---   lazy = true,
---   cmd = "Neotree", -- ensures it loads only when :Neotree is called
---   keys = {
---     { "<leader>e",  "<cmd>Neotree toggle<CR>",            desc = "Toggle File Explorer" },
---     { "<leader>eg", "<cmd>Neotree git_status toggle<CR>", desc = "Git Status Explorer" },
---     { "<leader>eb", "<cmd>Neotree buffers toggle<CR>",    desc = "Buffers Explorer" },
---   },
---   config = function()
---     require("neo-tree").setup({
---       close_if_last_window = true,
---       popup_border_style = "rounded",
---       enable_git_status = true,
---       enable_diagnostics = true,
---       default_component_configs = {
---         container = { enable_character_fade = true },
---         indent = { padding = 1, with_markers = true },
---         icon = { folder_closed = "", folder_open = "", folder_empty = "ﰊ" },
---       },
---       window = {
---         width = 30,
---         position = "left",
---         mapping_options = { noremap = true, nowait = true },
---         mappings = {
---           ["<CR>"] = "open",
---           ["o"] = "open",
---           ["l"] = "open",
---           ["h"] = "close_node",
---           ["a"] = "add",
---           ["r"] = "rename",
---           ["d"] = "delete",
---           ["y"] = "copy_to_clipboard",
---           ["x"] = "cut_to_clipboard",
---           ["p"] = "paste_from_clipboard",
---           ["s"] = "open_split",
---           ["v"] = "open_vsplit",
---           ["t"] = "open_tabnew",
---           ["f"] = "filter_on_submit",
---           ["R"] = "refresh",
---           ["?"] = "show_help",
---         },
---       },
---       filesystem = {
---         filtered_items = { hide_dotfiles = false, hide_gitignored = false },
---         follow_current_file = {
---           enable = true,
---           leave_dirs_open = true,
---         },
---         use_libuv_file_watcher = true,
---       },
---     })
-
---     -- Which-key integration
---     local wk = require("which-key")
---     wk.register({
---       ["<leader>e"] = {
---         name = "File Explorer",
---         t = { "<cmd>Neotree toggle<CR>", "Toggle Explorer" },
---         g = { "<cmd>Neotree git_status toggle<CR>", "Git Status Explorer" },
---         b = { "<cmd>Neotree buffers toggle<CR>", "Buffers Explorer" },
---       },
---     })
---   end,
--- }
-
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
@@ -143,16 +71,6 @@ return {
       },
     })
 
-    -- which-key integration (THIS PART WAS FINE)
-    -- local wk = require("which-key")
-    -- wk.register({
-    --   ["<leader>e"] = {
-    --     name = "File Explorer",
-    --     e = { "<cmd>Neotree toggle<CR>", "Toggle Explorer" },
-    --     g = { "<cmd>Neotree git_status toggle<CR>", "Git Status Explorer" },
-    --     b = { "<cmd>Neotree buffers toggle<CR>", "Buffers Explorer" },
-    --   },
-    -- })
     keys = {
       { "<leader>ee", "<cmd>Neotree toggle<CR>",            desc = "Toggle Explorer" },
       { "<leader>eg", "<cmd>Neotree git_status toggle<CR>", desc = "Git Status" },
